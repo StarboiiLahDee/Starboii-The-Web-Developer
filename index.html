@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starboii The Web Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===========================
+   LIVE ANIMATED BACKGROUND
+=========================== */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#050816,#081b3d,#0a2b57);
+}
+
+/* Animated Grid */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+    linear-gradient(rgba(0,195,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,195,255,.08) 1px,transparent 1px);
+    background-size:60px 60px;
+    animation:gridMove 15s linear infinite;
+}
+
+@keyframes gridMove{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(-60px,-60px);
+    }
+}
+
+/* Floating Computers */
+
+.computer{
+    position:absolute;
+    font-size:70px;
+    opacity:.12;
+    animation:floatPC linear infinite;
+}
+
+.c1{
+    left:5%;
+    animation-duration:20s;
+}
+
+.c2{
+    left:25%;
+    font-size:90px;
+    animation-duration:24s;
+    animation-delay:3s;
+}
+
+.c3{
+    left:50%;
+    font-size:80px;
+    animation-duration:18s;
+    animation-delay:5s;
+}
+
+.c4{
+    left:72%;
+    font-size:95px;
+    animation-duration:22s;
+    animation-delay:1s;
+}
+
+.c5{
+    left:90%;
+    font-size:75px;
+    animation-duration:26s;
+    animation-delay:7s;
+}
+
+@keyframes floatPC{
+    0%{
+        transform:translateY(120vh) rotate(0deg);
+    }
+
+    100%{
+        transform:translateY(-130vh) rotate(360deg);
+    }
+}
+
+/* Floating Glow */
+
+.glow{
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#00c3ff;
+    filter:blur(180px);
+    opacity:.12;
+    border-radius:50%;
+    animation:moveGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes moveGlow{
+    from{
+        transform:translate(-150px,-80px);
+    }
+    to{
+        transform:translate(150px,80px);
+    }
+}
+
+/* ==================
+NAVBAR
+================== */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(12px);
+    z-index:999;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-icon{
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#00c3ff,#005eff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:38px;
+    font-weight:bold;
+    box-shadow:0 0 30px #00c3ff;
+}
+
+.logo-text h1{
+    color:#00c3ff;
+    font-size:30px;
+}
+
+.logo-text p{
+    letter-spacing:5px;
+    color:#ddd;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* Dropdown */
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:#071d3b;
+    top:35px;
+    width:260px;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:15px;
+}
+
+.dropdown-content a:hover{
+    background:#00c3ff;
+    color:black;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* ==================
+HERO CONTENT
+================== */
+
+.content{
+    position:relative;
+    z-index:10;
+    max-width:800px;
+}
+
+.content h2{
+    font-size:75px;
+    color:#00c3ff;
+    text-shadow:0 0 20px #00c3ff;
+}
+
+.content h3{
+    font-size:30px;
+    letter-spacing:8px;
+    margin-bottom:25px;
+}
+
+.content p{
+    font-size:19px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 35px;
+    margin:8px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.call{
+    background:#00c3ff;
+    color:black;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* ==================
+SECTIONS
+================== */
+
+section{
+    padding:90px 10%;
+}
+
+.title{
+    text-align:center;
+    color:#00c3ff;
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#0b1730;
+    padding:30px;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 25px #00c3ff66;
+}
+
+.card h3{
+    color:#00c3ff;
+    margin-bottom:15px;
+}
+
+/* Special Classes */
+
+.special{
+    max-width:500px;
+    margin:auto;
+    background:#0b1730;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    border:2px solid #00c3ff;
+}
+
+.price{
+    font-size:60px;
+    color:#00c3ff;
+    font-weight:bold;
+    margin:20px;
+}
+
+/* Contact */
+
+form{
+    max-width:700px;
+    margin:auto;
+}
+
+input,textarea{
+    width:100%;
+    padding:15px;
+    margin:12px 0;
+    border:none;
+    border-radius:10px;
+    background:#0b1730;
+    color:white;
+}
+
+textarea{
+    height:180px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#00c3ff;
+    color:black;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Footer */
+
+footer{
+    background:#02040f;
+    text-align:center;
+    padding:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+
+<div class="logo-icon">
+S
+</div>
+
+<div class="logo-text">
+<h1>Starboii</h1>
+<p>THE WEB DEVELOPER</p>
+</div>
+
+</div>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li class="dropdown">
+
+<a href="#">Services ▼</a>
+
+<div class="dropdown-content">
+
+<a href="#">🌐 Web Development</a>
+<a href="#">🎨 Website Design</a>
+<a href="#">📱 Responsive Websites</a>
+<a href="#">🛒 E-Commerce Websites</a>
+<a href="#">🚀 SEO Optimization</a>
+<a href="#">🔧 Website Maintenance</a>
+<a href="#">🎓 Special Classes (R200)</a>
+
+</div>
+
+</li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<div class="hero">
+
+<div class="glow"></div>
+
+<div class="computer c1">💻</div>
+<div class="computer c2">🖥️</div>
+<div class="computer c3">💻</div>
+<div class="computer c4">🖥️</div>
+<div class="computer c5">💻</div>
+
+<div class="content">
+
+<h2>Starboii</h2>
+
+<h3>THE WEB DEVELOPER</h3>
+
+<p>
+Building modern, responsive and professional websites
+for businesses, entrepreneurs and students.
+Helping people master HTML, CSS and JavaScript.
+</p>
+
+<a href="tel:+27736231186" class="btn call">
+📞 Call Now
+</a>
+
+<a href="https://wa.me/27736231186" class="btn whatsapp">
+💬 WhatsApp
+</a>
+
+</div>
+
+</div>
+
+<section>
+
+<h2 class="title">Services Offered</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌐 Web Development</h3>
+<p>Modern websites built for businesses and personal brands.</p>
+</div>
+
+<div class="card">
+<h3>🎨 Website Design</h3>
+<p>Beautiful and professional website layouts.</p>
+</div>
+
+<div class="card">
+<h3>📱 Responsive Design</h3>
+<p>Perfect viewing experience on phones and computers.</p>
+</div>
+
+<div class="card">
+<h3>🚀 SEO Optimization</h3>
+<p>Helping your website become easier to find online.</p>
+</div>
+
+<div class="card">
+<h3>🛒 E-Commerce</h3>
+<p>Create online stores with secure shopping features.</p>
+</div>
+
+<div class="card">
+<h3>🔧 Website Maintenance</h3>
+<p>Website updates, fixes and ongoing support.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Special Classes</h2>
+
+<div class="special">
+
+<h3>Learn HTML, CSS & JavaScript</h3>
+
+<div class="price">
+R200
+</div>
+
+<p>
+Private one-on-one web development lessons for beginners.
+</p>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">
+Tell Me What You Need Help With
+</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="Describe your project or what you need help with..."></textarea>
+
+<button type="submit">
+Send Request
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<h2>Starboii The Web Developer</h2>
+
+<p>📞 073 623 1186</p>
+
+<p>Building Modern Websites & Digital Solutions</p>
+
+</footer>
+
+</body>
+</html>
